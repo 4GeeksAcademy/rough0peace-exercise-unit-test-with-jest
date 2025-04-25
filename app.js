@@ -8,7 +8,8 @@ console.log(sum(7,3))
 
 // Export the function to be used on other files 
 // (similar to the keyword "export" when using webpack)
-module.exports = { sum };
+module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound };
+
 
 let oneEuroIs = {
     "JPY": 156.5, // Japan yen
@@ -17,12 +18,13 @@ let oneEuroIs = {
 };
 
 function fromEuroToDollar(euro){
+    console.log("object test", oneEuroIs.USD)
     let dollar = euro * oneEuroIs.USD;
     return dollar;
 }
 
 function fromDollarToYen(dollar){
-    let yen = dollar * oneEuroIs.JPY / oneEuroIs.USD;
+    let yen = dollar / oneEuroIs.USD  * oneEuroIs.JPY;
     return yen;
 }
 
